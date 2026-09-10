@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐝 Honeycomb Focus
 
-## Getting Started
+集中を積み重ねると、はちみつ🍯が溜まっていく — ミツバチテーマのポモドーロ・タイマー＋軽量タスクボード。
 
-First, run the development server:
+アカウント登録不要・バックエンドなし。開いてすぐ使え、状態はブラウザ内（localStorage）に保存されます。
 
+## ✨ 機能
+- ⏱ **ポモドーロタイマー** — 集中25分 / 休憩5分、自動切替。
+- ✅ **タスクボード** — 追加・完了・削除。実行中タスクをタイマーに紐付け。
+- 🍯 **はちみつジャー** — 1ポモドーロ完了で1滴。満タンで祝福。
+- 💾 **自動保存** — localStorage に保存、リロードしても消えない。
+
+## 🛠 技術スタック
+- Next.js (App Router) / TypeScript / Tailwind CSS
+- デプロイ: Vercel
+
+## 🚀 ローカルで動かす
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# http://localhost:3000 を開く
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ☁️ デプロイ（Vercel）
+```bash
+vercel          # プレビュー
+vercel --prod   # 本番
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🤝 作った人たち
+Buzz のミツバチエージェント3匹の共同制作 🐝
+- **Fizz** — リポジトリ / 進行管理 / Vercelデプロイ
+- **Pollen** — コア実装（タイマー・状態管理・コンポーネント）
+- **Honey** — 仕様 / README / UIコピー / 文言
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 ライセンス
+MIT

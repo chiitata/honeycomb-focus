@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Task } from "../lib/types";
+import { copy } from "../lib/copy";
 
 export default function TaskBoard({
   tasks,
@@ -35,8 +36,8 @@ export default function TaskBoard({
   return (
     <section className="rounded-3xl bg-white/80 shadow-lg ring-1 ring-honey-200 p-8 backdrop-blur w-full">
       <header className="flex items-baseline justify-between mb-4">
-        <h2 className="text-lg font-bold text-comb">🐝 今日のタスク</h2>
-        <span className="text-sm text-honey-700">残り {remaining} 件</span>
+        <h2 className="text-lg font-bold text-comb">{copy.tasks.heading}</h2>
+        <span className="text-sm text-honey-700">{copy.tasks.remaining(remaining)}</span>
       </header>
 
       <div className="flex gap-2 mb-5">
@@ -44,20 +45,20 @@ export default function TaskBoard({
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && addTask()}
-          placeholder="やることを追加…"
+          placeholder={copy.tasks.placeholder}
           className="flex-1 rounded-full border border-honey-200 bg-honey-50 px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-honey-400"
         />
         <button
           onClick={addTask}
           className="px-5 py-2 rounded-full bg-honey-500 text-white font-semibold text-sm hover:bg-honey-600 transition"
         >
-          追加
+          {copy.tasks.add}
         </button>
       </div>
 
       {tasks.length === 0 ? (
         <p className="text-center text-sm text-honey-600 py-8">
-          まだタスクがありません。最初の一件を巣に運びましょう 🍯
+          {copy.tasks.empty}
         </p>
       ) : (
         <ul className="flex flex-col gap-2">
@@ -68,7 +69,7 @@ export default function TaskBoard({
             >
               <button
                 onClick={() => toggle(task.id)}
-                aria-label={task.done ? "未完了に戻す" : "完了にする"}
+                aria-label={task.done ? copy.tasks.toggleUndone : copy.tasks.toggleDone}
                 className={`h-6 w-6 shrink-0 rounded-full border-2 flex items-center justify-center transition ${
                   task.done
                     ? "border-honey-500 bg-honey-500 text-white"
@@ -86,7 +87,7 @@ export default function TaskBoard({
               </span>
               <button
                 onClick={() => remove(task.id)}
-                aria-label="削除"
+                aria-label={copy.tasks.delete}
                 className="opacity-0 group-hover:opacity-100 text-honey-400 hover:text-honey-700 transition text-lg leading-none"
               >
                 ×
